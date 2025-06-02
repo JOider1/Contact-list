@@ -1,0 +1,63 @@
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a40, #3a0ca3);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.notfound-title {
+  font-size: 108px;
+  color: #87beec;
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.notfound-main-text {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.notfound-sub-text {
+  font-size: 18px;
+  color: #cccccc;
+  margin-bottom: 30px;
+}
+
+.astronaut {
+  width: 180px;
+  animation: float 3s ease-in-out infinite;
+  margin: 20px 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.home-button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid white;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+
+.home-button:hover {
+  background-color: white;
+  color: #1a1a40;
+}
