@@ -1,11 +1,12 @@
 import { Link } from "react-router";
+import './Header.scss';
 
-export default function Header() {
+export default function Header({searchBySymbols}) {
     return(
-        <header className="container">
+        <header className="container shadow-lg bg-white mb-3 mt-3 ">
             <div className="row">
                 <div className="col-12">
-                    <nav className="navbar bg-body-tertiary rounded shadow">
+                    <nav className="navbar bg-body-tertiary ">
                         <div className="container-fluid">
                            <div className="navbar-brand">
                             <Link className="navbar-brand" to="/">
@@ -17,8 +18,7 @@ export default function Header() {
                            </div>
 
                             <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-outline-success" type="submit">Search</button>
+                                <input onInput={e => searchBySymbols(e.target.value)} className="form-control me-3" type="search" placeholder="Search" aria-label="Search"/>
                             </form>
                         </div>
                     </nav>

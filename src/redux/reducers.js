@@ -1,16 +1,10 @@
-import './App.css'
+import {
+    ADD_CONTACT, 
+    DELETE_CONTACT,
+    EDIT_CONTACT
+} from './type'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router'
-import { useState } from 'react'
-
-import ContactList from './pages/ContactList/ContactList'
-import AddContact from './pages/AddContact/AddContact'
-import EditContact from './pages/EditContact/EditContact'
-import NotFound from './pages/NotFound/NotFound'
-import Header from './components/Header/Header'
-
-function App() {
-  const [stor, setStor] = useState({
+const intialState = {
     contacts: [
       {
         id: "1a2b3c4d-0001-4a2f-89d3-bb11a111a111",
@@ -124,45 +118,36 @@ function App() {
       },
     ],
     search: '',
-  })
-
-  const searchBySymbols = (symbol) => {
-    setStor(prevStor => {return {...prevStor, search: symbol}})
-  }
-
-  const handleNewContact = (newContact) => {
-    const contacts = [...stor.contacts, newContact]
-    setStor(prevStor => {return {...prevStor, contacts}})
-  }
-
-  const deleteContact = (id) => {
-    const contacts = stor.contacts.filter(contact => contact.id !== id)
-    setStor(prevStor => {return {...prevStor, contacts}})
-  }
-
-  const handleEditContact = (updateContact) => {
-    const contacts = stor.contacts.map(contact => {
-      if(contact.id === updateContact.id){
-       return {...contact, ...updateContact}
-      }
-      return contact
-     })
-
-    setStor(prevStor => {return {...prevStor, contacts}})
-  }
-
-
-  return (
-    <Router>
-      <Header searchBySymbols={searchBySymbols}/>
-      <Routes>
-        <Route path='/' element={<ContactList stor={stor} deleteContact={deleteContact}/>}/>
-        <Route path='/add-contact' element={<AddContact addNewContact={handleNewContact}/>}/>
-        <Route path='/edit-contact/:id' element={<EditContact editContact={handleEditContact} stor={stor}/>}/>
-        <Route path='*' element={<NotFound/>}/>
-      </Routes>
-    </Router>
-  )
 }
 
-export default App
+const reducer = (state = intialState, action) =>{
+    switch (action.type) {
+        case ADD_CONTACT:
+            return{
+                ...state,
+                contacts: [...state.contacts , action.payload]
+            }
+        case DELETE_CONTACT:
+            return{
+                ...state,
+                contacts: state.contacts.filter(contact => contact.id !== action.payload)
+            }
+        case EDIT_CONTACT:
+            return{
+                ...state,
+                contacts: state.contacts.map(contact =>{
+                    if (contact.id === action.payload.id) {
+                        return{
+                            ...contact,
+                            ...action.payload.updatedContact 
+                        }
+                    }
+                    return contact
+                })
+            }
+        default:
+            return state 
+    }
+}
+
+export default reducer

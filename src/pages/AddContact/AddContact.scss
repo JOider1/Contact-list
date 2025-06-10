@@ -1,6 +1,105 @@
-.addPage{
-    background-color: #f8f8f8;
-    width: 600px;
-    padding: 40px 30px;
-    margin: 10px auto;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import '../../styles/MainColor.scss';
+@import '../../styles/Body.scss';
+
+
+.addPage {
+  background: linear-gradient(50deg, $bg-mid, $bg-darker);
+  color: $text-color;
+  background-color: #f8f8f8;
+  width: 600px;
+  padding: 40px 30px;
+  margin: 10px auto;
+  border: 0px solid;
+  border-radius: 25px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  hr {
+    height: 1px;
+    background: $border-color;
+    border: none;
+    margin-bottom: 30px;
+  }
+
+  label {
+    color: $text-muted;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .form-control {
+    background-color: $input-bg;
+    border: 1px solid $border-color;
+    color: $text-color ;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:focus {
+      background-color: $input-focus;
+      border-color: $border-focus;
+      box-shadow: 0 0 0 3px $accent-light;
+      outline: none;
+    }
+  }
+
+  select.form-control {
+    appearance: none;
+  }
+
+  .form-check-input {
+    background-color: $input-bg;
+    border: 1px solid #444;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+
+    &:checked {
+      background-color: #444;
+      border-color: #666;
+    }
+  }
+
+  .form-check-label {
+    margin-left: 10px;
+    color: #aaa;
+  }
+
+  .text-danger {
+    color: $text-danger ;
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #141414, #222);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-top: 20px;
+    transition: all 0.4s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #111, #333);
+      transform: scale(103%);
+    }
+
+    &:disabled {
+      background-color: #2a2a2a;
+      cursor: not-allowed;
+    }
+  }
 }
