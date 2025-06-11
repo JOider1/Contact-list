@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.contactItem-container {
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  color: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+
+  table {
+    width: 100%;
+    background-color: #181818;
+    border-radius: 16px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    th {
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      background-color: #e2e2e2;
+      color: #171717;
+      text-transform: uppercase;
+      border-bottom: 1px solid #111111;
+    } 
+    tbody {
+        tr {
+            transition: background-color 0.3s ease;  
+            &:hover {
+                background: #222222;
+            }
+            
+        td {
+            background-color:rgba(15, 15, 15, 0);
+            padding: 18px;
+            vertical-align: middle;
+            color: #f0f0f0;
+          img {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid #444;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+          }
+        }
+        .edit-icon {
+          color: #ffffff;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+            color: #9a9a9a;
+          }
+        }
+        .delete-icon {
+          color: #ffffff;
+          margin-left: 10px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+            color: #9a9a9a;
+          }
+        }
+      }
+    }
+  }
+}

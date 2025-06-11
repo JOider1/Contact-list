@@ -24,23 +24,23 @@ export default function Sidebar({stor}) {
             </div>
             <div className="list fs-5">
               <div className="d-flex justify-content-between mb-3">
-                <div className="bg-success">Work</div>
+                <div className="">Work</div>
                 <span>{statusCounts.work}</span>
               </div>
               <div className="d-flex justify-content-between mb-3">
-                <div className="bg-warning">Family</div>
+                <div className="">Family</div>
                 <span>{statusCounts.family}</span>
               </div>
               <div className="d-flex justify-content-between mb-3">
-                <div className="bg-info">Friends</div>
+                <div className="">Friends</div>
                 <span>{statusCounts.friends}</span>
               </div>
               <div className="d-flex justify-content-between mb-3">
-                <div className="bg-primary">Private</div>
+                <div className="">Private</div>
                 <span>{statusCounts.private}</span>
               </div>
               <div className="d-flex justify-content-between mb-3">
-                <div className="bg-secondary">Others</div>
+                <div className="">Others</div>
                 <span>{statusCounts.others}</span>
               </div>
             </div>
