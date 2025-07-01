@@ -1,3 +1,13 @@
 export const ADD_CONTACT = 'ADD_CONTACT'
 export const DELETE_CONTACT = 'DELETE_CONTACT'
 export const EDIT_CONTACT = 'EDIT_CONTACT'
+
+export const SEARCH_CONTACT = 'SEARCH_CONTACT'
+
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE'
+export const SET_FILTER = 'SET_FILTER' 
+
+export const ADD_STATUS = 'ADD_STATUS'
+export const EDIT_STATUS = 'EDIT_STATUS'
+export const DELETE_STATUS = 'DELETE_STATUS'
+

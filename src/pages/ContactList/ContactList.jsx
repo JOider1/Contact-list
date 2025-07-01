@@ -1,15 +1,15 @@
-import ContactItem from "../../components/ContactItem/ContactItem.jsx"
+import ContactItem from "../../Components/ContactItem/ContactItem.jsx"
 import Sidebar from "../../Components/Sidebar/Sidebar.jsx"
 
-export default function ContactList({ stor, deleteContact }) {
+export default function ContactList() {
     return(
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                    <Sidebar stor={stor}/>
+                    <Sidebar/>
                 </div>
                 <div className="col-9">
-                    <ContactItem stor={stor} deleteContact={deleteContact}/>
+                    <ContactItem/>
                 </div>
             </div>
         </div>

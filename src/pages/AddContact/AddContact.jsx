@@ -3,9 +3,12 @@ import { Formik, Form, Field, ErrorMessage} from 'formik'
 import {contactValidationSchema} from '../../validation/validation'
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router";
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/actions';
 
-export default function AddContact({ addNewContact }) {
+export default function AddContact() {
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const initialValues = {
         id: uuidv4(),
@@ -18,13 +21,11 @@ export default function AddContact({ addNewContact }) {
         status: '',
         favorite: ''
     }
-
     const handleSubmin = (values) => {
         console.log(values);
-        addNewContact(values)
+        dispatch(addContact(values))
         navigate('/')
     }
-
     return(
         
         <div className="container">
