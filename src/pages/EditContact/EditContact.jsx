@@ -11,7 +11,7 @@ export default function EditContact() {
     const navigate = useNavigate();
     const contacts = useSelector(state => state.contacts)
     const dispatch = useDispatch()
-
+    const contactStatuss = useSelector(state => state.contactStatuss);
     const contact = contacts.find(contact => contact.id === id)
     
     const initialValues = {...contact}
@@ -92,13 +92,13 @@ export default function EditContact() {
                                 <label htmlFor="status">Status</label>
                                 <Field className='form-control fs-5' as='select' name='status'>
                                     <option value="">Choose status</option>
-                                    <option value="work">Work</option>
-                                    <option value="family">Family</option>
-                                    <option value="friends">Friends</option>
-                                    <option value="private">Private</option>
-                                    <option value="others">Others</option>
+                                    {contactStatuss && Object.keys(contactStatuss).map((statusKey) => (
+                                        <option key={statusKey} value={statusKey}>
+                                            {statusKey.charAt(0).toUpperCase() + statusKey.slice(1)}
+                                        </option>
+                                    ))}
                                 </Field>
-                                <ErrorMessage name='status' component='p' className='text-danger position-absolute'/>
+                                <ErrorMessage name='status' component='p' className='text-danger position-absolute' />
                             </div>
                             <div className='mb-4'>
                                 <label className='form-check-label fs-5' htmlFor="favorite">Favorite</label>

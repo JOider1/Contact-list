@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { deleteStatus } from "../../redux/actions";
-
+import "./ContactStatuss.scss"
 export default function ContactStatuss() {
   const contactStatuss = useSelector((state) => state.contactStatuss);
   const contacts = useSelector((state) => state.contacts);
@@ -24,7 +24,7 @@ export default function ContactStatuss() {
   };
 
   return (
-    <main className="container rounded bg-white shadow-lg">
+    <main className="container containerStatus rounded shadow-lg">
       <div className="row">
         <div className="col-12">
           <Link type="button" className="btn btn-success btn-lg m-2" to={"/contact-statuss/add-contact-status"}>
@@ -51,21 +51,20 @@ export default function ContactStatuss() {
                   <td className="fs-4 fw-bold">{statusCounts[status].count}</td>
                   <td>
                     <Link to={`/contact-statuss/edit-contact-status/${status}`}>
-                      <FaRegEdit size={"50px"} color="yellow" />
+                      <FaRegEdit className="edit-icon" />
                     </Link>
                     <button
                       type="button"
                       disabled={status === "others"}
-                      style={{
-                        cursor: "pointer",
-                        border: "none",
-                        background: "none",
-                      }}
-                      onClick={() => {
-                        handleDeleteStatus(status);
-                      }}>
-                      <MdDeleteForever size={"50px"} color={status === "others" ? "grey" : "red"} />
+                      className="delete-btn"
+                      onClick={() => handleDeleteStatus(status)}
+                    >
+                      <MdDeleteForever
+                        className="delete-icon"
+                        color={status === "others" ? "grey" : "#ffffff"}
+                      />
                     </button>
+
                   </td>
                 </tr>
               ))}

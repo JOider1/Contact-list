@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.containerStatus {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  color: #f0f0f0;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+
+  margin: 20px auto;
+
+  .btn-success {
+    background-color: #198754;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 15px;
+    padding: 12px 24px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: lighten(#198754, 5%);
+    }
+  }
+
+  table {
+    width: 100%;
+    background-color: #181818;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+
+    th {
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #e2e2e2;
+      color: #111;
+      text-transform: uppercase;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #222;
+      }
+
+      td, th {
+        background-color: transparent;
+        padding: 16px;
+        vertical-align: middle;
+        color: #f0f0f0;
+        font-size: 1rem;
+      }
+
+      td:nth-child(3) {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .edit-icon,
+      .delete-icon {
+        font-size: 30px;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin: 0 5px;
+
+        &:hover {
+          transform: scale(1.1);
+          filter: brightness(1.2);
+          color: #9a9a9a;
+        }
+      }
+
+      .delete-icon:disabled {
+        color: grey;
+        cursor: not-allowed;
+      }
+
+      .delete-btn {
+        background: none;
+        border: none;
+        padding: 0;
+      }
+    }
+  }
+}

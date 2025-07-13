@@ -82,7 +82,7 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #141414, #222);
+    background-color: #198754;
     color: #fff;
     border: none;
     padding: 12px;
@@ -93,7 +93,7 @@
     transition: all 0.4s ease;
 
     &:hover {
-      background: linear-gradient(135deg, #111, #333);
+      background-color: #198754;
       transform: scale(103%);
     }
 
