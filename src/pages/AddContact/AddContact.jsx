@@ -53,26 +53,29 @@ export default function AddContact() {
                             </div>
 
                             {/* Phone */}
-                            <Field name="phone">
-                                {({ field, form }) => (
-                                    <input
-                                        {...field}
-                                        type="text"
-                                        className="form-control fs-5"
-                                        id="phone"
-                                        placeholder="+38-067-123-4567"
-                                        onChange={(e) => {
-                                            const raw = e.target.value.replace(/\D/g, '').slice(0, 12);
-                                            let formatted = '';
-                                            if (raw.length > 0) formatted = '+' + raw.slice(0, 2);
-                                            if (raw.length > 2) formatted += '-' + raw.slice(2, 5);
-                                            if (raw.length > 5) formatted += '-' + raw.slice(5, 8);
-                                            if (raw.length > 8) formatted += '-' + raw.slice(8, 12);
-                                            form.setFieldValue('phone', formatted);
-                                        }}
-                                    />
-                                )}
-                            </Field>
+                            <div className='mb-4'>
+                                <label htmlFor="lastName">Phone</label>
+                                <Field name="phone">
+                                    {({ field, form }) => (
+                                        <input
+                                            {...field}
+                                            type="text"
+                                            className="form-control fs-5"
+                                            id="phone"
+                                            placeholder="+380-67-123-4567"
+                                            onChange={(e) => {
+                                                const raw = e.target.value.replace(/\D/g, '').slice(0, 12);
+                                                let formatted = '';
+                                                if (raw.length > 0) formatted = '+' + raw.slice(0, 3);
+                                                if (raw.length > 2) formatted += '-' + raw.slice(3, 5);
+                                                if (raw.length > 5) formatted += '-' + raw.slice(5, 8);
+                                                if (raw.length > 8) formatted += '-' + raw.slice(8, 12);
+                                                form.setFieldValue('phone', formatted);
+                                            }}
+                                        />
+                                    )}
+                                </Field>
+                            </div>
 
                             {/* Email */}
                             <div className='mb-4'>

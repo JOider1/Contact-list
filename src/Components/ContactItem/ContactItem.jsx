@@ -1,5 +1,6 @@
 import './ContactItem.scss';
 import { Link } from "react-router";
+import { FiPhone } from "react-icons/fi";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
@@ -88,7 +89,7 @@ export default function ContactItem() {
             <th>Phone/Email</th>
             <th>Status</th>
             <th>Gender</th>
-            <th>Edit/Del</th>
+            <th>Call/Edit/Del</th>
           </tr>
         </thead>
         <tbody>
@@ -99,7 +100,7 @@ export default function ContactItem() {
                   <img
                     onClick={() => openContactInfo(contact)}
                     style={{ cursor: 'pointer' }}
-                    className={`rounded-circle border border-3 ${contact.gender === 'women' ? 'border-danger' : 'border-primary'}`}
+                    className='info-avatar'
                     src={`https://randomuser.me/api/portraits/${contact.gender}/${contact.avatar}.jpg`}
                     alt=""
                   />
@@ -111,10 +112,16 @@ export default function ContactItem() {
                   </button>
                 </td>
                 <td>{contact.firstName}<br />{contact.lastName}</td>
-                <td>{contact.phone}<br />{contact.email}</td>
+                <td>
+                  {contact.phone}<br />
+                  {contact.email}<br />
+                </td>
                 <td>{contact.status}</td>
                 <td>{contact.gender}</td>
                 <td>
+                  <a href={`tel:${contact.phone}`} >
+                    <FiPhone className="edit-call"/>
+                  </a>
                   <Link to={`/edit-contact/${contact.id}`}>
                     <FaRegEdit className='edit-icon' />
                   </Link>

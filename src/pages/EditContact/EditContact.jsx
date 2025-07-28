@@ -39,36 +39,39 @@ export default function EditContact() {
                                 <Field className='form-control fs-5' type='text' name='lastName' id='lastName'/>
                                 <ErrorMessage name='lastName' component='p' className='text-danger position-absolute'/>
                             </div>
-                            <Field name="phone">
-                                    {({ field, form }) => (
-                                        <input
-                                        {...field}
-                                        type="text"
-                                        className="form-control fs-5"
-                                        id="phone"
-                                        placeholder="+38-067-123-4567"
-                                        onChange={(e) => {
-                                            const raw = e.target.value.replace(/\D/g, '').slice(0, 12); // максимум 12 цифр
-                                            let formatted = '';
+                            <div className='mb-4'>
+                                <label htmlFor="lastName">Phone</label>
+                                <Field name="phone">
+                                        {({ field, form }) => (
+                                            <input
+                                            {...field}
+                                            type="text"
+                                            className="form-control fs-5"
+                                            id="phone"
+                                            placeholder="+380-67-123-4567"
+                                            onChange={(e) => {
+                                                const raw = e.target.value.replace(/\D/g, '').slice(0, 12); // максимум 12 цифр
+                                                let formatted = '';
 
-                                            if (raw.length > 0) {
-                                            formatted = '+' + raw.slice(0, 2);
-                                            }
-                                            if (raw.length > 2) {
-                                            formatted += '-' + raw.slice(2, 5);
-                                            }
-                                            if (raw.length > 5) {
-                                            formatted += '-' + raw.slice(5, 8);
-                                            }
-                                            if (raw.length > 8) {
-                                            formatted += '-' + raw.slice(8, 12);
-                                            }
+                                                if (raw.length > 0) {
+                                                formatted = '+' + raw.slice(0, 3);
+                                                }
+                                                if (raw.length > 2) {
+                                                formatted += '-' + raw.slice(3, 5);
+                                                }
+                                                if (raw.length > 5) {
+                                                formatted += '-' + raw.slice(5, 8);
+                                                }
+                                                if (raw.length > 8) {
+                                                formatted += '-' + raw.slice(8, 12);
+                                                }
 
-                                            form.setFieldValue('phone', formatted);
-                                        }}
-                                        />
-                                    )}
-                                    </Field>
+                                                form.setFieldValue('phone', formatted);
+                                            }}
+                                            />
+                                        )}
+                                </Field>
+                            </div>
                             <div className='mb-4'> 
                                 <label htmlFor="email">Email</label>
                                 <Field className='form-control fs-5' type='email' name='email' id='email'/>
